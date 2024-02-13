@@ -1,0 +1,31 @@
+{
+  "name": "tvlk-aldy-qa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open --config-file ./config.$environment.env.js",
+    "cy:run": "cypress run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai-json-schema": "^1.5.1",
+    "crypto-js": "^4.1.1",
+    "cypress-commands": "^1.1.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-testrail": "^2.3.1",
+    "faker": "^5.5.3",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "cypress": "^13.0.0",
+    "cypress-xpath": "^2.0.1"
+  }
+}
