@@ -1,11 +1,15 @@
 export class MainPage {
-    
-    visitTravelokaPage(){
-        cy.visit('https://www.traveloka.com/')
-        cy.url().should('include', '/en')
-    }
+  validateMainPage() {
+    cy.url().should("include", "/integration");
+  }
 
-    doClickCarRental(){
-        cy.xpath('//h4[text()="Car Rental"]').click()
-    }
+  doSelectTopMenu(menu) {
+    cy.get('[class="mr-2"]').contains(menu).click();
+    cy.get("h2").contains(menu).should("be.visible");
+  }
+
+  doSelectSubMenu(submenu) {
+    cy.get("a").find("div div div div").contains(submenu).click();
+    cy.get("h4").contains(submenu).should("be.visible");
+  }
 }
