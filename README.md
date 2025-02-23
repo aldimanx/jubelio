@@ -11,9 +11,9 @@ If you have issues, please go to [Cypress' Guide to Installing Cypress](https://
 
 2. After ensuring you have NodeJs & npm installed, clone this repo into your intended directory, e.g.
    ```
-   C:\Users\QACandidate\99-interview-cypress
+   C:\Users\QACandidate\interview-cypress
    ```
-3. From within the `99-interview-cypress` directory, run the command
+3. From within the `Jubelio` directory, run the command
    ```
    npm install
    ```
