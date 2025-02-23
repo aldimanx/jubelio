@@ -1,5 +1,5 @@
-const { defineConfig } = require("cypress")
-const setupNodeEvents = require('./cypress/plugins/index.js')
+const { defineConfig } = require("cypress");
+const setupNodeEvents = require("./cypress/plugins/index.js");
 
 module.exports = defineConfig({
   e2e: {
@@ -15,13 +15,15 @@ module.exports = defineConfig({
     supportFile: "cypress/support/commands.js",
     reporter: "./node_modules/mochawesome/src/mochawesome.js",
     reporterOptions: {
-        "overwrite": false,
-        "html": false,
-        "json": true
+      overwrite: false,
+      html: false,
+      json: true,
     },
 
-    specPattern: [
-      "**/integration/**",
-    ],
-  }
+    specPattern: ["**/integration/**"],
+  },
+  env: {
+    environment: "staging",
+    apiTest: "https://dummyjson.com/",
+  },
 });

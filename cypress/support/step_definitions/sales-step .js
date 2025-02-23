@@ -58,8 +58,8 @@ And("I submit sales form", (customer) => {
   salesPage.doSubmitOrder(customer);
 });
 
-And("I validate sales invoice created", () => {
-  salesPage.validateSalesInvoiceCreated();
+And("I validate {string} as sales invoice created", (message) => {
+  salesPage.validateMessageAlert(message);
 });
 
 And(

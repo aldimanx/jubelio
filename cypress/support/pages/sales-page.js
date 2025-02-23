@@ -41,9 +41,9 @@ export class SalesPage {
     cy.get('[title="save"]').click({ force: true });
   }
 
-  validateSalesInvoiceCreated() {
+  validateMessageAlert(message) {
     cy.get('[class="MuiAlert-message css-1w0ym84"]')
-      .contains("Data berhasil disimpan")
+      .contains(message)
       .should("be.visible");
   }
 

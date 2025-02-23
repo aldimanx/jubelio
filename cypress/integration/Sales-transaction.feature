@@ -17,7 +17,7 @@ Feature: Sales order transaction
         And I select 'Pusat' as location
         And I select 'baju murah' as product
         And I submit sales form
-        Then I validate sales invoice created
+        Then I validate 'Data berhasil disimpan' as sales invoice created
 
     Scenario: As User search transaction for sales order that created before
         When I search 'salesnumber1' as sales invoice that created before
