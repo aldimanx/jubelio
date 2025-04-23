@@ -13,7 +13,7 @@ If you have issues, please go to [Cypress' Guide to Installing Cypress](https://
    ```
    C:\Users\QACandidate\interview-cypress
    ```
-3. From within the `Jubelio` directory, run the command
+3. From within the `Dealls` directory, run the command
    ```
    npm install
    ```
@@ -26,6 +26,6 @@ All of the following information is documented in [Cypress/Core Concepts - The T
 
 2. To open the test runner, run the following command in your directory:
    ```
-   npx cypress open
+   npx cypress open --config-file ./config.dealls.env.js  
    ```
    There will be some text concerning your first time using Cypress if it opens successfully.
