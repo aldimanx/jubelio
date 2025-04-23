@@ -1,17 +1,24 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 import { MainPage } from "../pages/main-page.js";
-import { stateStore } from "../helper.js";
 
 const mainPage = new MainPage();
 
-Given("Success login into dashboard page", () => {
-  mainPage.validateMainPage();
+Given("I Visit dealls page", () => {
+  mainPage.doVisitDealls();
 });
 
-When("I choose {string} from top menu", (menu) => {
-  mainPage.doSelectTopMenu(menu);
+When("I want to login dealls user", () => {
+  mainPage.doVisitLoginUser();
 });
 
-And("I choose {string} from sub menu", (submenu) => {
-  mainPage.doSelectSubMenu(submenu);
+And("I search {string} as specific job in main page", (job) => {
+  mainPage.doSearchJob(job);
+});
+
+And("I validate {string} as searched job visible", (job) => {
+  mainPage.doValidateSearchResult(job);
+});
+
+And("I validate no specific job found yet", () => {
+  mainPage.doValidateEmptySearchResult();
 });

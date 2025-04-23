@@ -1,18 +1,23 @@
 export class LoginPage {
-  doVisitJubelio() {
-    cy.visit("https://v2.jubelio.com/auth/login");
+  doVisitSwagLabs() {
+    cy.visit("https://www.saucedemo.com/");
   }
 
   validateLoginPage() {
-    cy.url().should("include", "/login");
-    cy.contains("Isi form dibawah untuk masuk ke akun anda").should(
-      "be.visible"
-    );
+    cy.url().should("include", "/sign-in");
   }
 
   doLogin(username, password) {
-    cy.get("#textfield-email").type(username);
-    cy.get("#textfield-password").type(password);
-    cy.get("[type='submit']").contains("Login").click();
+    cy.get('[id="basic_email"]').type(username);
+    cy.get('[id="basic_password"]').type(password);
+    cy.get("span").contains("Sign In").click();
+  }
+
+  validateWrongPassword() {
+    cy.get("div").should("include.text", "Password WRONG");
+  }
+
+  validateSuccessLogin() {
+    cy.get("div").should("include.text", "Sign in success");
   }
 }

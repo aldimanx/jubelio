@@ -1,15 +1,36 @@
 export class MainPage {
-  validateMainPage() {
-    cy.url().should("include", "/integration");
+  doVisitDealls() {
+    cy.visit("https://dealls.com/");
+    cy.get(`h1`).should("include.text", "Cari Lowongan Kerja Pakai Dealls ");
   }
 
-  doSelectTopMenu(menu) {
-    cy.get('[class="mr-2"]').contains(menu).click();
-    cy.get("h2").contains(menu).should("be.visible");
+  doVisitLoginUser() {
+    const idLanguage = cy.get('[alt="IDN"]');
+    const loginButton = cy.get('[id="dealls-navbar-login-btn"]');
+
+    // Check if IDN is visible
+    idLanguage.then(($idLang) => {
+      if ($idLang.is(":visible")) {
+        // If IDN is visible, click the "Masuk" button
+        loginButton.should("have.text", "Masuk").click();
+      } else {
+        cy.get('[alt="ENG"]');
+        loginButton.should("have.text", "Login").click();
+      }
+    });
+  }
+  doSearchJob(job) {
+    cy.get('[id="searchJob"]').type(job + "{enter}");
   }
 
-  doSelectSubMenu(submenu) {
-    cy.get("a").find("div div div div").contains(submenu).click();
-    cy.get("h4").contains(submenu).should("be.visible");
+  doValidateSearchResult(job) {
+    cy.get("h2").should("include.text", job).and("have.length.greaterThan", 1);
+  }
+
+  doValidateEmptySearchResult() {
+    cy.get("h5").should(
+      "include.text",
+      "Pekerjaan terkait dengan filter yang dipilih belum ada di sini, tapi kami akan mencatatnya "
+    );
   }
 }
